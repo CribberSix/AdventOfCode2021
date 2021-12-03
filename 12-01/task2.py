@@ -1,7 +1,7 @@
 import csv
 import more_itertools as it
 
-with open("c:/coding/repositories/AdventOfCode2021/2021-12-01/data.csv") as csvfile:
+with open("data.csv") as csvfile:
     reader = csv.reader(csvfile, delimiter=';')
     data = [int(x[0]) for x in list(reader)]
 

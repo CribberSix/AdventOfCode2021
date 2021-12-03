@@ -1,6 +1,6 @@
 import csv
 
-with open("c:/coding/repositories/AdventOfCode2021/2021-12-02/data.csv") as csvfile:
+with open("data.csv") as csvfile:
     reader = csv.reader(csvfile, delimiter=' ')
     data = [(x[0], int(x[1])) for x in list(reader)]
 
