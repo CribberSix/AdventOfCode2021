@@ -12,10 +12,7 @@ class LineSegment:
 
     def is_horizontal_or_vertical(self):
         """Calculates whether a line is strictly horizontal or vertical."""
-        if self.x1 == self.x2 or self.y1 == self.y2:
-            return True
-        else:
-            return False
+        return self.x1 == self.x2 or self.y1 == self.y2
 
     def get_max_number(self):
         return max([self.x1, self.x2, self.y1, self.y2])

@@ -4,6 +4,7 @@ from LineSegment import LineSegment
 class Map:
 
     def __init__(self, length_of_map):
+        """Create a square 2D list(s) as a map to keep track of lines."""
         self.map = [[0 for _ in range(length_of_map+1)] for _ in range(length_of_map+1)]
 
     def mark_line(self, line: LineSegment) -> None:
