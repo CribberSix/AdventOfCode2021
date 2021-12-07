@@ -1,7 +1,6 @@
 # Parse data
 with open('data.txt') as f:
     data = [int(x) for x in f.readlines()[0].split(',')]
-    data.sort()
 
 # calculate fuel costs of moving all elements to the current index position.
 options = []

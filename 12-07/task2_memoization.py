@@ -12,12 +12,10 @@ def calc_costs(i):
 # Parse data
 with open('data.txt') as f:
     data = [int(x) for x in f.readlines()[0].split(',')]
-    data.sort()
-max_num = max(data)
-options = {}
 
 # calculate fuel costs of moving all elements to the current index position.
-for index in range(0, max_num+1):
+options = {}
+for index in range(0, max(data)+1):
     fuel_cost = 0
     for position in data:
         fuel_cost += calc_costs(abs(index-position))
