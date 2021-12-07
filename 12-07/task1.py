@@ -5,8 +5,8 @@ with open('data.txt') as f:
 max_num = max(data)
 options = []
 
+# calculate fuel costs of moving all elements to the current index.
 for index in range(0, max_num+1):
-    # calculate fuel costs of moving all elements to the current index.
     fuel_cost = 0
     for position in data:
         fuel_cost += abs(index-position)
