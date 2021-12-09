@@ -1,10 +1,4 @@
 from typing import List
-# Surround data with 9s so we don't have to take special care of edges while identifying low points
-# Since it's a 9, even low points on the actual edges remain low points.
-with open("data.txt") as f:
-    data = [[9] + [int(e) for e in row] + [9] for row in [list(x[:-1]) for x in f.readlines()]]
-    data = [[9] * (len(data[0]) + 2)] + data
-    data = data + [[9] * (len(data[0]) + 2)]
 
 
 def get_low_points(data: List) -> List:
@@ -44,14 +38,21 @@ def get_list_of_neighbours(y: int, x: int, element: int) -> List:
     return res
 
 
+# Surround data with 9s so we don't have to take special care of edges while identifying low points
+# Since it's a 9, even low points on the actual edges remain low points.
+with open("data.txt") as f:
+    data = [[9] + [int(e) for e in row] + [9] for row in [list(x[:-1]) for x in f.readlines()]]
+    data = [[9] * (len(data[0]) + 2)] + data
+    data = data + [[9] * (len(data[0]) + 2)]
+
 basin_sizes = []
 basins = []
 for point in get_low_points(data):
     neighbours = get_list_of_neighbours(point[0], point[1], point[2])
     # remove duplicates as a neighbour can be the lowest neighbour of multiples.
     basins.append(set(neighbours))
-    basin_sizes.append(len(set(neighbours)))
 
+basin_sizes = [len(b) for b in basins]
 basin_sizes.sort()
 print(f"Solution: {(basin_sizes[-1] * basin_sizes[-2] * basin_sizes[-3])}")
 
