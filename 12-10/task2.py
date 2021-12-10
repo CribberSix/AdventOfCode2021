@@ -20,7 +20,7 @@ for line in data:
     checked_lines.append(check_line(line))
 incomplete_lines = [x[2] for x in checked_lines if x[0]]
 
-# calculate line score for each incomplete line
+# calculate line score for each incomplete (reversed) line
 line_scores = []
 for incomplete_line in incomplete_lines:
     line_score = 0

@@ -28,7 +28,10 @@ def check_line(line: str) -> (bool, str, str):
                 # Found match of last opened symbol -> remove it from the stack
                 opened = opened[:-1]
             else:
+                # Found corrupted character -> return with the character.
                 return False, char, None
+        else:
+            raise ValueError(f"Unknown character '{char}' encountered.")
     return True, None, opened
 
 
