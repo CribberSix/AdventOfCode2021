@@ -25,14 +25,8 @@ while True:
         for x, octopus in enumerate(row):
             increment_octopi(y, x)
 
-    print(f"ROUND {i+1} with {flashes_counter} flashes since the start.")
-
-    if False:  # visualize octopi
-        for s in [[str(o) for o in row] for row in octopi]:
-            print("".join(s))
-
     if check_all_flashing(octopi):
-        print("ALL FLASHING.")
+        print(f"All flashing in round {i+1}.")
         break
 
     # reset energy levels of all octopi who have an energy level above 9
