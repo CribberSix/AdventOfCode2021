@@ -6,9 +6,7 @@ def execute_cycle(template: str) -> str:
     for index, letter in enumerate(template):
         new_template += letter
         if index < len(template)-1:
-            for source, sink in rules:
-                if letter + template[index+1] in source:
-                    new_template += sink
+            new_template += rules[letter + template[index+1]]
     return new_template
 
 
@@ -22,7 +20,7 @@ def calculate_solution(template: str) -> int:
 with open("data.txt") as f:
     data = [line.strip().split(" -> ") for line in f.readlines() if line.strip() != ""]
     polymer_template = data[0][0]
-    rules = data[1:]
+    rules = {key: value for key, value in data[1:]}
 
 # Calculate transformation cycles
 for i in range(10):
