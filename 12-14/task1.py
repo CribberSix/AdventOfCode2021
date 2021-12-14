@@ -25,6 +25,6 @@ with open("data.txt") as f:
 # Calculate transformation cycles
 for i in range(10):
     polymer_template = execute_cycle(polymer_template)
-    print(f"After {i+1} steps the new template has a length of {len(polymer_template)} and is: {polymer_template}.")
+    print(f"After {i+1} steps the new template has a length of {len(polymer_template)}.")
 
 print("solution_part1", calculate_solution(polymer_template))
