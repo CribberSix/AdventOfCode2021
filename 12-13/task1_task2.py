@@ -35,22 +35,17 @@ def fold_paper(paper: List[str], axis: str, index: int) -> List[str]:
         # fold along y-axis. Fold rows over rows.
         result = paper[:index]
         reversed_rest = paper[index+1:][::-1]
-        for y, line in enumerate(result):
-            for x, element in enumerate(line):
-                result[y][x] = '█' if reversed_rest[y][x] == '█' else result[y][x]
-        return result
-
     elif axis == 'x':
         # fold along x-axis. Fold each row in itself.
         result = [line[:index] for line in paper]
         reversed_rest = [line[index+1:][::-1] for line in paper]
-        for y, line in enumerate(result):
-            for x, element in enumerate(line):
-                result[y][x] = '█' if reversed_rest[y][x] == '█' else result[y][x]
-        return result
-
     else:
         raise ValueError("Invalid string-representation of the axis.")
+
+    for y, line in enumerate(result):
+        for x, element in enumerate(line):
+            result[y][x] = '█' if reversed_rest[y][x] == '█' else result[y][x]
+    return result
 
 
 for axis, index in folds:
